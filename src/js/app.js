@@ -33,29 +33,35 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name === null ? "Asif" : variables.name} ${
-    variables.lastName
+          <h1>${!variables.name ? "Name" : variables.name} ${
+    !variables.lastName ? "Last Name" : variables.lastName
   }</h1>
-          <h2>${variables.role}</h2>
-          <h3>${!variables.city ? "Ciudad" : variables.city}, ${
-    variables.country
+          <h2>${!variables.role ? "Profession" : variables.role}</h2>
+          <h3>${!variables.city ? "City" : variables.city}, ${
+    !variables.country ? "Country" : variables.country
   }</h3>
           <ul class="${variables.socialMediaPosition}">
             <li><a title="Twitter" target="_blank" href="${
-              variables.twitter
+              !variables.twitter
                 ? "https://x.com/4geeksacademyES"
                 : `https://x.com/${variables.twitter}`
             }"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="${
-              variables.github
+            <li><a target="_blank" title="Github" href="${
+              !variables.github
+                ? "https://github.com/4geeksacademy"
+                : `https://github.com/${variables.github}`
             }"><i class="fab fa-github"></i></a></li>
-            <li><a href="${
-              variables.linkedin
+            <li><a title="LinkedIn" target="_blank" href="${
+              !variables.linkedin
+                ? "https://www.linkedin.com/school/4geeksacademyes/"
+                : `https://www.linkedin.com/${variables.linkedin}`
             }"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="${
-              variables.instagram
+            <li><a target="_blank" title="Instagram" href="${
+              !variables.instagram
+                ? "https://www.instagram.com/4geeksacademyes/?hl=en"
+                : `https://www.instagram.com/${variables.instagram}`
             }"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+           </ul>
         </div>
     `;
 }
